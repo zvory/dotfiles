@@ -19,7 +19,16 @@
             "~/.irssi": {
                 "path": "irssi/"
             },
-            "~/.liquidpromptrc": null
+            "~/.liquidpromptrc": null,
+            "~/.local/share/fonts": {
+                "path":  "hack/ttf",
+                "create": true
+            },
+            "~/.config/fontconfig/conf.d": {
+                "path": "hack/config",
+                "create": true
+            },
+            "~/.vimrc": "vimrc"
         }
     }
 ]
