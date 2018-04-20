@@ -69,6 +69,6 @@ fi
 dotfiles_bin=${HOME}'/.dotfiles/bin'
 
 # Only load Liquid Prompt in interactive shells, not from a script or from scp
-[[ $- = *i* ]] && source "${dotfiles_bin}/liquidprompt/liquidprompt"
+#[[ $- = *i* ]] && source "${dotfiles_bin}/liquidprompt/liquidprompt"
 
 export PATH=$PATH:$dotfiles_bin
