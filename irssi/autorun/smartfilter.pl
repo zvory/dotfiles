@@ -1,0 +1,1 @@
+/users/azvorygi/.irssi/scripts/smartfilter.pl

@@ -15,6 +15,9 @@
             "~/.config/i3": {
                 "path": "config/i3/",
                 "create": true
+            },
+            "~/.irssi": {
+                "path": "irssi/"
             }
         }
     }
