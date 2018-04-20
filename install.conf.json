@@ -18,7 +18,8 @@
             },
             "~/.irssi": {
                 "path": "irssi/"
-            }
+            },
+            "~/.liquidpromptrc": null
         }
     }
 ]
