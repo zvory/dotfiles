@@ -4,6 +4,6 @@
 [submodule "bin/liquidprompt"]
 	path = bin/liquidprompt
 	url = https://github.com/nojhan/liquidprompt.git
-[submodule ".vim"]
-	path = .vim
-	url = git://github.com/dotphiles/dotvim.git
+[submodule "bash-it"]
+	path = bash-it
+	url = https://github.com/Bash-it/bash-it.git
