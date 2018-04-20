@@ -12,6 +12,8 @@ alias la="${exa_binary} -ah"
 alias ll="${exa_binary} -lh"
 alias df="df -h"
 
+alias r="python ${dotfiles_bin}/ranger/ranger.py"
+
 alias cd..="cd .."
 alias chmoud="chmod"
 alias se="ssh -Y azvorygi@linux.student.cs.uwaterloo.ca"
