@@ -17,3 +17,5 @@ alias r="python ${dotfiles_bin}/ranger/ranger.py"
 alias cd..="cd .."
 alias chmoud="chmod"
 alias se="ssh -Y azvorygi@linux.student.cs.uwaterloo.ca"
+
+alias cloud="ssh -i ~/.ssh/csc-cloud-key.pem ubuntu@172.19.134.63"
