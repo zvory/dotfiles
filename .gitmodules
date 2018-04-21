@@ -1,9 +1,6 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
-[submodule "bin/liquidprompt"]
-	path = bin/liquidprompt
-	url = https://github.com/nojhan/liquidprompt.git
 [submodule "bash-it"]
 	path = bash-it
 	url = https://github.com/Bash-it/bash-it.git

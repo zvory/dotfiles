@@ -19,7 +19,6 @@
             "~/.irssi": {
                 "path": "irssi/"
             },
-            "~/.liquidpromptrc": null,
             "~/.local/share/fonts": {
                 "path":  "hack/ttf",
                 "create": true
