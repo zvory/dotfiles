@@ -45,7 +45,7 @@ set autoread
 let mapleader = ","
 
 " Fast saving
-nmap <leader>w :w!<cr>
+" nmap <leader>w :w!<cr>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
@@ -385,6 +385,7 @@ endfunction
 "mods by alex
 :command WQ wq
 :command Wq wq
+:command W w
 :command Ws w !sudo tee % > /dev/null
 :command Q q
 set number

@@ -1,3 +1,8 @@
 # dotfiles
-make sure all submodules init'd and syncd
-`./install`
+
+```
+cd ~
+git clone --recurse-submodules https://github.com/zvory/dotfiles.git .dotfiles
+cd .dotfiles
+./install
+```
