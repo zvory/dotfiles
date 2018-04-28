@@ -385,6 +385,7 @@ endfunction
 "mods by alex
 :command WQ wq
 :command Wq wq
+:command W w
 :command Ws w !sudo tee % > /dev/null
 :command Q q
 set number
