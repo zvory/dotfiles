@@ -5,6 +5,11 @@
         ]
     },
     {
+        "shell": [
+            ["git submodule update --init --recursive", "Installing submodules"]
+        ]
+    },
+    {
         "link": {
             "~/.bash_profile": "bash_profile",
             "~/.bashrc": "bashrc",
@@ -29,5 +34,10 @@
             },
             "~/.vimrc": "vimrc"
         }
+    },
+    {
+        "shell": [
+            ["./fzf/install", "Installing fzf"]
+        ]
     }
 ]
