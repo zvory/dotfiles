@@ -27,3 +27,6 @@ alias gcm="git commit -m"
 alias gl="git log"
 alias gd="git diff"
 alias glp='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'
+alias gcl='git clone'
+
+alias vfzf='vim $(fzf)'
