@@ -102,3 +102,6 @@ fi
 # Directory
 alias	md='mkdir -p'
 alias	rd='rmdir'
+
+# bat
+alias cat='bat'
