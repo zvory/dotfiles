@@ -26,7 +26,7 @@ alias cloud="ssh -i ~/.ssh/csc-cloud-key.pem ubuntu@172.19.134.63"
 #alias ga="git add"
 #alias gcm="git commit -m"
 #alias gl="git log"
-#alias gd="git diff"
+alias gd="git diff"
 alias glp='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'
 alias vfzf='vim $(fzf)'
 
@@ -65,22 +65,6 @@ alias gg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %
 alias ggs="gg --stat"
 alias gsl="git shortlog -sn"
 alias gw="git whatchanged"
-
-if [ -z "$EDITOR" ]; then
-    case $OSTYPE in
-      linux*)
-        alias gd='git diff | vim -R -'
-        ;;
-      darwin*)
-        alias gd='git diff | mate'
-        ;;
-      *)
-        alias gd='git diff'
-        ;;
-    esac
-else
-    alias gd="git diff | $EDITOR"
-fi
 
 
 # added at influitive:
