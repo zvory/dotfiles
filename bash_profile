@@ -11,8 +11,8 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d ~/bin ] ; then
-    PATH=~/bin:"${PATH}"
+if [ -d ~/.bin ] ; then
+    PATH=~/.bin:"${PATH}"
 fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
