@@ -27,6 +27,7 @@ alias cloud="ssh -i ~/.ssh/csc-cloud-key.pem ubuntu@172.19.134.63"
 #alias gcm="git commit -m"
 #alias gl="git log"
 alias gd="git diff"
+alias gdc="git diff --cached"
 alias glp='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'
 alias vfzf='vim $(fzf)'
 
