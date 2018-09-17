@@ -155,3 +155,6 @@ bar {
         status_command i3status
         tray_output primary
 }
+
+bindsym $MOD+SHIFT+x exec light-locker-command --lock
+

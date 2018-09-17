@@ -22,6 +22,8 @@
                 "path": "config/i3/",
                 "create": true
             },
+            "~/.fehbg": "fehbg",
+            "~/Pictures/Proun4b.jpg": "Proun4b.jpg",
             "~/.irssi": {
                 "path": "irssi/"
             },
