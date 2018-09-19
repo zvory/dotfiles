@@ -1,20 +1,37 @@
 servers = (
   { address = "irc.dal.net"; chatnet = "DALnet"; port = "6667"; },
-  { address = "irc.efnet.org"; chatnet = "EFNet"; port = "6667"; },
-  { address = "irc.esper.net"; chatnet = "EsperNet"; port = "6667"; },
+  {
+    address = "ssl.efnet.org";
+    chatnet = "EFNet";
+    port = "9999";
+    use_tls = "yes";
+  },
+  {
+    address = "irc.esper.net";
+    chatnet = "EsperNet";
+    port = "6697";
+    use_tls = "yes";
+    tls_verify = "yes";
+  },
   {
     address = "chat.freenode.net";
     chatnet = "Freenode";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
+    port = "6697";
+    use_tls = "yes";
+    tls_verify = "yes";
+    autoconnect = "yes";
   },
   {
     address = "irc.gamesurge.net";
     chatnet = "GameSurge";
     port = "6667";
   },
-  { address = "eu.irc6.net"; chatnet = "IRCnet"; port = "6667"; },
+  {
+    address = "eu.irc6.net";
+    chatnet = "IRCnet";
+    port = "6667";
+    use_tls = "yes";
+  },
   { address = "open.ircnet.net"; chatnet = "IRCnet"; port = "6667"; },
   {
     address = "irc.ircsource.net";
@@ -22,56 +39,30 @@ servers = (
     port = "6667";
   },
   { address = "irc.netfuze.net"; chatnet = "NetFuze"; port = "6667"; },
-  { address = "irc.oftc.net"; chatnet = "OFTC"; port = "6667"; },
+  {
+    address = "irc.oftc.net";
+    chatnet = "OFTC";
+    port = "6697";
+    use_tls = "yes";
+    tls_verify = "yes";
+  },
   { 
     address = "irc.quakenet.org";
     chatnet = "QuakeNet";
     port = "6667";
+  },
+  {
+    address = "irc.rizon.net";
+    chatnet = "Rizon";
+    port = "6697";
+    use_tls = "yes";
+    tls_verify = "yes";
   },
   { address = "silc.silcnet.org"; chatnet = "SILC"; port = "706"; },
   { 
     address = "irc.undernet.org";
     chatnet = "Undernet";
     port = "6667";
-  },
-  {
-    address = "irc.freenode.net";
-    chatnet = "Freenode";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-    autoconnect = "yes";
-  },
-  {
-    address = "irc.rizon.net";
-    chatnet = "Rizon";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-    autoconnect = "yes";
-  },
-  {
-    address = "irc.systemnet.info";
-    chatnet = "Systemnet";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-  },
-  {
-    address = "irc.parahumans.net";
-    chatnet = "Parahumans";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-    autoconnect = "yes";
-  },
-  {
-    address = "irc.darklordpotter.net";
-    chatnet = "DLP";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-    autoconnect = "yes";
   }
 );
 
@@ -96,7 +87,7 @@ chatnets = {
   };
   Freenode = {
     type = "IRC";
-    autosendcmd = "^MSG Nickserv identify p2averas";
+    autosendcmd = "/^msg nickserv identify PIlr(ws)374Q#m)v.U9W;wait 2000";
     max_kicks = "1";
     max_msgs = "4";
     max_whois = "1";
@@ -132,6 +123,12 @@ chatnets = {
     max_msgs = "1";
     max_whois = "1";
   };
+  Rizon = { 
+    type = "IRC";
+    max_kicks = "1";
+    max_msgs = "1";
+    max_whois = "1";
+  };
   SILC = { type = "SILC"; };
   Undernet = {
     type = "IRC";
@@ -139,18 +136,6 @@ chatnets = {
     max_msgs = "1";
     max_whois = "1";
   };
-  Rizon = {
-    type = "IRC";
-    autosendcmd = "^MSG NickServ identify p2averas";
-  };
-  Systemnet = { type = "IRC"; };
-  Parahumans = {
-    type = "IRC";
-    nick = "edqu";
-    username = "edqu";
-    realname = "edqu";
-  };
-  DLP = { type = "IRC"; };
 };
 
 channels = (
@@ -163,19 +148,8 @@ channels = (
   { name = "#netfuze"; chatnet = "NetFuze"; autojoin = "No"; },
   { name = "#oftc"; chatnet = "OFTC"; autojoin = "No"; },
   { name = "silc"; chatnet = "SILC"; autojoin = "No"; },
-  { 
-    name = "#reddit-cyberpunk";
-    chatnet = "Freenode";
-    autojoin = "yes";
-  },
   { name = "#csc"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#csc-syscom"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "##marxism"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#slatestarcodex"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "##hplusroadmap"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "##hplusroadmap"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#lesswrong"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#darklordpotter"; chatnet = "DLP"; autojoin = "yes"; }
+  { name = "#csc-exec"; chatnet = "Freenode"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -431,29 +405,10 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "dequ"; user_name = "dequ"; nick = "dequ"; };
+  core = {
+    real_name = "azvorygi";
+    user_name = "azvorygi";
+    nick = "azvorygi";
+  };
   "fe-text" = { actlist_sort = "refnum"; };
 };
-ignores = (
-  { 
-    level = "JOINS PARTS QUITS MODES";
-    channels = ( "##javascript" );
-  },
-  {
-    level = "JOINS PARTS QUITS MODES";
-    channels = ( "#reddit-cyberpunk" );
-  },
-  { 
-    level = "JOINS PARTS QUITS MODES";
-    channels = ( "##networking" );
-  },
-  {
-    level = "JOINS PARTS QUITS MODES";
-    channels = ( "#slatestarcodex" );
-  },
-  { level = "JOINS PARTS QUITS MODES"; channels = ( "#csc" ); },
-  { level = "JOINS PARTS QUITS MODES"; channels = ( "#racket" ); },
-  { level = "JOINS PARTS QUITS MODES"; channels = ( "##politics" ); },
-  { level = "JOINS PARTS QUITS MODES"; channels = ( "##marxism" ); }
-);
-hilights = ( { text = "nick"; nick = "yes"; word = "yes"; } );
