@@ -90,3 +90,10 @@ alias	rd='rmdir'
 
 # bat
 alias cat='bat'
+
+alias parsecd='./Downloads/parsec-linux/usr/bin/parsecd app_daemon=1'
+
+alias hello='echo hi'
+alias howareyou='echo "im good, you?"'
+alias nottoobad='echo "nice, well, see ya around, gotta go to class"'
+alias thanks='echo "you'"'"'re welcome"'

@@ -411,4 +411,9 @@ settings = {
     nick = "azvorygi";
   };
   "fe-text" = { actlist_sort = "refnum"; };
+  "fe-common/core" = {
+    hilight_nick_matches_everywhere = "yes";
+    beep_msg_level = "MSGS HILIGHT DCCMSGS";
+  };
 };
+hilights = ( { text = "nick"; nick = "yes"; word = "yes"; } );
