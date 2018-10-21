@@ -6,7 +6,7 @@
 	url = https://github.com/Bash-it/bash-it.git
 [submodule "gnome-terminal-colors-solarized"]
 	path = gnome-terminal-colors-solarized
-	url = https://github.com/Anthony25/gnome-terminal-colors-solarized.git
+	url = https://github.com/zvory/gnome-terminal-colors-solarized.git
 [submodule "fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
