@@ -12,8 +12,14 @@
     {
         "link": {
             "~/.bash_profile": "bash_profile",
-            "~/.bashrc": "bashrc",
-            "~/.bash_logout": "bash_logout",
+            "~/.bashrc": {
+                "path": "bashrc",
+                "force": true
+            },
+            "~/.bash_logout": {
+                "path": "bash_logout",
+                "force": true
+            },
             "~/.bash_aliases": "bash_aliases",
             "~/.gitconfig": "gitconfig",
             "~/.i3status.conf": "i3status.conf",
