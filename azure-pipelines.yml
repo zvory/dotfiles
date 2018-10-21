@@ -8,6 +8,7 @@ pool:
 
 steps:
 - script: |
+    cat .gitmodules
     mkdir ~/.ssh
     touch ~/.ssh/known_hosts
     ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
