@@ -8,10 +8,6 @@ pool:
 
 steps:
 - script: |
-    cat .gitmodules
-    mkdir ~/.ssh
-    touch ~/.ssh/known_hosts
-    ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
     cd ~
     git clone --recurse-submodules https://github.com/zvory/dotfiles.git .dotfiles
     cd .dotfiles
