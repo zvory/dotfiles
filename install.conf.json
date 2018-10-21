@@ -11,7 +11,10 @@
     },
     {
         "link": {
-            "~/.bash_profile": "bash_profile",
+            "~/.bash_profile": {
+                "path": "bash_profile",
+                "force": true
+            },
             "~/.bashrc": {
                 "path": "bashrc",
                 "force": true
@@ -21,7 +24,10 @@
                 "force": true
             },
             "~/.bash_aliases": "bash_aliases",
-            "~/.gitconfig": "gitconfig",
+            "~/.gitconfig": {
+                "path": "gitconfig",
+                "force": true
+            },
             "~/.i3status.conf": "i3status.conf",
             "~/.bin": "bin",
             "~/.config/i3": {

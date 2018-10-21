@@ -1,13 +1,10 @@
 parameters:
   name: ''
   pool: ''
-  sign: false
 
 jobs:
 - job: ${{ parameters.name }}
   pool: ${{ parameters.pool }}
   steps:
   - script: ./install 
-  - ${{ if eq(parameters.sign, 'true') }}:
-    - script: sign
 
