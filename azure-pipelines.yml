@@ -1,17 +1,17 @@
 jobs:
-- template: jobs/build.yml  # Template reference
+- template: build.yml  # Template reference
   parameters:
     name: macOS
     pool:
       vmImage: 'macOS-10.13'
 
-- template: jobs/build.yml  # Template reference
+- template: build.yml  # Template reference
   parameters:
     name: Linux
     pool:
       vmImage: 'ubuntu-16.04'
 
-- template: jobs/build.yml  # Template reference
+- template: build.yml  # Template reference
   parameters:
     name: Windows
     pool:
