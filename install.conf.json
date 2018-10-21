@@ -23,7 +23,10 @@
                 "create": true
             },
             "~/.fehbg": "fehbg",
-            "~/Pictures/Proun4b.jpg": "Proun4b.jpg",
+            "~/Pictures/Proun4b.jpg": {
+                "path": "Proun4b.jpg",
+                "create": true
+            },
             "~/.irssi": {
                 "path": "irssi/"
             },
