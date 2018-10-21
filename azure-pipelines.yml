@@ -8,8 +8,9 @@ pool:
 
 steps:
 - script: |
+    ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
     cd ~
-    git clone --recurse-submodules https://github.com/zvory/dotfiles.git .dotfiles
+    yes | git clone --recurse-submodules https://github.com/zvory/dotfiles.git .dotfiles
     cd .dotfiles
     ./install
   displayName: 'Install'
