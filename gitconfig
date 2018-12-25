@@ -18,3 +18,5 @@
 	whitespace = red reverse
 [color]
 	ui = true
+[core]
+	editor = vim
