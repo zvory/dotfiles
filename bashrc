@@ -55,11 +55,13 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ]; then
-    eval "`dircolors -b`"
-    #alias ls='ls --color=auto'
-    #alias dir='ls --color=auto --format=vertical'
-    #alias vdir='ls --color=auto --format=long'
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    if [ "$TERM" != "dumb" ]; then
+        eval "`dircolors -b`"
+        #alias ls='ls --color=auto'
+        #alias dir='ls --color=auto --format=vertical'
+        #alias vdir='ls --color=auto --format=long'
+    fi
 fi
 
 # enable programmable completion features (you don't need to enable
