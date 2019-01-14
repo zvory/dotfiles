@@ -14,11 +14,3 @@ fi
 if [ -d ~/.bin ] ; then
     PATH=~/.bin:"${PATH}"
 fi
-
-#if ruby 2.3 is user-installed (this is for CSC machiens)
-if [ -d ~/.gem/ruby/2.3.0/bin ] ; then
-    PATH=~/.gem/ruby/2.3.0/bin/:"${PATH}"
-fi
-
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
