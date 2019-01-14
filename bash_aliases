@@ -50,7 +50,7 @@ alias gp='git push'
 alias gpo='git push origin'
 alias gdv='git diff -w "$@" | vim -R -'
 alias gc='git commit -v'
-alias gca='git commit -v -a'
+alias gca='git commit -a'
 alias gcm='git commit -v -m'
 alias gci='git commit --interactive'
 alias gb='git branch'
@@ -90,3 +90,10 @@ alias	rd='rmdir'
 
 # bat
 alias cat='bat'
+
+alias parsecd='./Downloads/parsec-linux/usr/bin/parsecd app_daemon=1'
+
+alias hello='echo hi'
+alias howareyou='echo "im good, you?"'
+alias nottoobad='echo "nice, well, see ya around, gotta go to class"'
+alias thanks='echo "you'"'"'re welcome"'

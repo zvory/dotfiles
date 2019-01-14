@@ -12,8 +12,14 @@
     {
         "link": {
             "~/.bash_profile": "bash_profile",
-            "~/.bashrc": "bashrc",
-            "~/.bash_logout": "bash_logout",
+            "~/.bashrc": {
+                "path": "bashrc",
+                "force": true
+            },
+            "~/.bash_logout": {
+                "path": "bash_logout",
+                "force": true
+            },
             "~/.bash_aliases": "bash_aliases",
             "~/.gitconfig": "gitconfig",
             "~/.i3status.conf": "i3status.conf",
@@ -23,7 +29,10 @@
                 "create": true
             },
             "~/.fehbg": "fehbg",
-            "~/Pictures/Proun4b.jpg": "Proun4b.jpg",
+            "~/Pictures/Proun4b.jpg": {
+                "path": "Proun4b.jpg",
+                "create": true
+            },
             "~/.irssi": {
                 "path": "irssi/"
             },
