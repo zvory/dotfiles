@@ -1,10 +1,17 @@
 exa_binary="unknown"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    bat_binary="bat-linux"
     exa_binary="exa-linux"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
+    bat_binary="bat-macos"
     exa_binary="exa-macos"
 fi
 
+# bat
+alias bat=${bat_binary}
+alias cat='bat'
+
+#exa/ls
 alias exa="${exa_binary}"
 alias l="${exa_binary} -h"
 alias ls="${exa_binary} -h"
@@ -57,5 +64,3 @@ fi
 # Directory
 alias mkdir="mkdir -p"
 
-# bat
-alias cat='bat'
