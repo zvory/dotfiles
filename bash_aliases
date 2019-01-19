@@ -47,6 +47,7 @@ alias gdv='git diff -w "$@" | vim -R -'
 alias gc='git commit -v'
 alias gca='git commit -a'
 alias gcm='git commit -v -m'
+alias gsh="git show"
 alias gb='git branch'
 alias gcp='git cherry-pick'
 alias gco='git checkout'
