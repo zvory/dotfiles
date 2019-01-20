@@ -5,17 +5,6 @@ source ~/.bash_profile
 source ~/.bash_aliases
 source ~/.bashrc
 
-
-#testing aliases
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    bat_binary="bat-linux"
-    exa_binary="exa-linux"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    bat_binary="bat-macos"
-    exa_binary="exa-macos"
-fi
-
-
 string="$(alias ls)"
 if [[ $string == *"$exa_binary"* ]]; then
   echo "okay: exa alias"
