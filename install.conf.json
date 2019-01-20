@@ -11,10 +11,10 @@
     },
     {
         "shell": [
-            ["cp ~/.bashrc ~/.OLDbashrc"],
-            ["cp ~/.bash_logout ~/.OLDbash_logout"],
-            ["cp ~/.gitconfig ~/.OLDgitconfig"],
-            ["cp ~/.bash_profile ~/.OLDbash_profile"]
+            ["cp ~/.bashrc ~/.OLDbashrc\"$(date)\" || true"],
+            ["cp ~/.bash_logout ~/.OLDbash_logout\"$(date)\" || true"],
+            ["cp ~/.gitconfig ~/.OLDgitconfig\"$(date)\" || true"],
+            ["cp ~/.bash_profile ~/.OLDbash_profile\"$(date)\" || true"]
         ]
     },
     {
