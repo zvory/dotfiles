@@ -8,8 +8,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # bat
-alias bat=${bat_binary}
-alias cat='bat'
+alias cat=${bat_binary}
 
 #exa/ls
 alias exa="${exa_binary}"

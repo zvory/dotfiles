@@ -13,3 +13,6 @@ steps:
     cd .dotfiles
     ./install
   displayName: 'Install'
+- script: |
+    ./test.sh
+  displayName: 'Test'
