@@ -34,13 +34,14 @@ else
 fi
 
 
-string="$(fzf --version)"
-if [ $? -eq 0 ]
-then
-  echo "okay: fzf"
-else
-  echo "err: fzf"
-  exit 1
-fi
-
-exit 0
+#string="$(fzf --version)"
+#if [ $? -eq 0 ]
+#then
+#  echo "okay: fzf"
+#else
+#  echo "err: fzf"
+#  echo "$string"
+#  exit 1
+#fi
+#
+#exit 0
