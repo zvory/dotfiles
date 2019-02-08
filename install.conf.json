@@ -57,5 +57,11 @@
         "shell": [
             ["yes | ./fzf/install", "Installing fzf"]
         ]
+    },
+    {
+        "shell": [
+            ["(cd autojump && ./install.py)", "Installing autojump"]
+        ]
     }
 ]
+	
