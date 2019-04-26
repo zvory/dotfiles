@@ -67,3 +67,7 @@ fi
 # Directory
 alias mkdir="mkdir -p"
 
+alias cdredshift="cd ~/stripe/go/src/github.com/stripe-internal/redshift"
+alias cdgocode="cd ~/stripe/go/src/git.corp.stripe.com/stripe-internal/gocode/"
+alias cdviz="cd ~/stripe/viz"
+alias cdhubble="cd ~/stripe/go/src/git.corp.stripe.com/stripe-internal/gocode/hubble"
