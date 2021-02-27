@@ -50,8 +50,10 @@ alias gsh="git show"
 alias gb='git branch'
 alias gcp='git cherry-pick'
 alias gco='git checkout'
+alias gcob='git checkout -b'
 alias gll='git log --graph --pretty=oneline --abbrev-commit'
 alias gg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias gcapf="ga . && gca --no-edit && gp -f"
 gpuo() {
     git push -u origin $(git rev-parse --abbrev-ref HEAD)
 }
