@@ -1,14 +1,19 @@
-exa_binary="unknown"
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    bat_binary="bat-linux"
+# Quickly access the ~/.zshrc file
+alias zshrc="code ~/.zshrc"
+alias grep="grep --color"
+
+exa_binary="ls"
+bat_binary="cat"
+if [[ "$AZ_STRIPE" == "true" ]]; then
+    exa_binary="exa"
+elif [[ "$OSTYPE" == "linux-gnu" ]]; then
     exa_binary="exa-linux"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    bat_binary="bat-macos"
     exa_binary="exa-macos"
 fi
 
 # bat
-alias cat=${bat_binary}
+alias cat="${bat_binary}"
 
 #exa/ls
 alias exa="${exa_binary}"
@@ -33,6 +38,7 @@ alias gdc="git diff --cached"
 alias gcl='git clone'
 alias ga='git add'
 alias gall='git add .'
+
 alias g='git'
 alias gs='git status'
 alias gss='git status -s'
@@ -45,6 +51,7 @@ alias gpo='git push origin'
 alias gdv='git diff -w "$@" | vim -R -'
 alias gc='git commit -v'
 alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
 alias gcm='git commit -v -m'
 alias gsh="git show"
 alias gb='git branch'
@@ -59,6 +66,14 @@ gpuo() {
 }
 
 
+alias fetchout='git fetch origin master-passing-tests && git checkout -B master origin/master-passing-tests && git checkout'
+alias fetcherge='git fetch origin master-passing-tests && git merge origin/master-passing-tests --no-edit'
+
+alias gch='git branch -v --sort=-committerdate | fzf --layout=reverse-list --bind "enter:execute(git checkout {1})+accept-non-empty"'
+
+alias grb='git branch -v --sort=-committerdate | fzf --layout=reverse-list --bind "enter:execute(git rebase {1})+accept-non-empty"'
+
+
 
 # Tree
 if [ ! -x "$(which tree 2>/dev/null)" ]
@@ -69,3 +84,14 @@ fi
 # Directory
 alias mkdir="mkdir -p"
 
+# Stripe aliases
+alias ij='~/stripe/zoolander/dev/ij'
+alias k='sc kubectl'
+alias kq='k -q -n'
+alias kp='k -p -n'
+# alias f="scripts/format_all.sh"
+
+alias mspworker='ssh $(ls-servers -QN -c east -Sqt mspworker | shuf -n 1)'
+
+alias hdsq='henson dump-skycfg --qa'alias gcm="git commit -v -m"
+alias gcm="git commit -v -m"
