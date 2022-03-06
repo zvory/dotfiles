@@ -31,8 +31,9 @@
                 "path": "Proun4b.jpg",
                 "create": true
             },
-            "~/.irssi": {
-                "path": "irssi/"
+            "~/Pictures/convoy.png": {
+                "path": "convoy.png",
+                "create": true
             },
             "~/.vimrc": "vimrc"
         }

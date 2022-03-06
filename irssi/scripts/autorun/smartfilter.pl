@@ -1,1 +1,0 @@
-irssi-smartfilter/smartfilter.pl
