@@ -19,7 +19,7 @@
     },
     {
         "link": {
-            "~/.bash_aliases": "bash_aliases",
+            "~/.aliases": "aliases",
             "~/.gitconfig": {
                 "path": "gitconfig",
                 "force": true
