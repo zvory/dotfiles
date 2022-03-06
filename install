@@ -2,6 +2,7 @@
 
 set -e
 
+
 CONFIG="install.conf.json"
 DOTBOT_DIR="dotbot"
 
@@ -12,3 +13,10 @@ cd "${BASEDIR}"
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+
+echo '#######################################'
+echo '# Manual installation required for:'
+echo '# oh-my-zsh'
+echo '# fzf'
+echo '# rupa/z'
+echo '#######################################'

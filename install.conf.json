@@ -24,8 +24,6 @@
                 "path": "gitconfig",
                 "force": true
             },
-            "~/.bin": "bin",
-            "~/.fehbg": "fehbg",
             "~/Pictures/Proun4b.jpg": {
                 "path": "Proun4b.jpg",
                 "create": true
