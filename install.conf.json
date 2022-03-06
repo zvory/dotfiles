@@ -43,7 +43,7 @@
     },
     {
         "shell": [
-            ["yes | ./fzf/install", "Installing fzf"]
+            ["echo 'install fzf!'", "INSTALL FZF INSTALL FZF"]
         ]
     },
     {
