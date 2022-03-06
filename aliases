@@ -2,9 +2,8 @@
 alias zshrc="code ~/.zshrc"
 alias grep="grep --color"
 
-exa_binary="ls"
-
 #exa/ls
+exa_binary="ls"
 alias exa="${exa_binary}"
 alias l="${exa_binary} -h"
 alias ls="${exa_binary} -h"
@@ -18,8 +17,6 @@ alias ..='cd ..'         # Go up one directory
 alias ...='cd ../..'     # Go up two directories
 alias ....='cd ../../..' # Go up three directories
 alias chmoud="chmod"
-alias se="ssh -Y azvorygi@linux.student.cs.uwaterloo.ca"
-alias sshcsc="ssh azvorygi@hfcs.csclub.uwaterloo.ca"
 
 # Git Aliases
 alias gd="git diff"
@@ -41,7 +38,7 @@ alias gdv='git diff -w "$@" | vim -R -'
 alias gc='git commit -v'
 alias gca='git commit --amend'
 alias gcan='git commit --amend --no-edit'
-alias gcm='git commit -v -m'
+alias gcm="git commit -v -m"
 alias gsh="git show"
 alias gb='git branch'
 alias gcp='git cherry-pick'
@@ -62,8 +59,6 @@ alias gch='git branch -v --sort=-committerdate | fzf --layout=reverse-list --bin
 
 alias grb='git branch -v --sort=-committerdate | fzf --layout=reverse-list --bind "enter:execute(git rebase {1})+accept-non-empty"'
 
-
-
 # Tree
 if [ ! -x "$(which tree 2>/dev/null)" ]
 then
@@ -82,5 +77,4 @@ alias kp='k -p -n'
 
 alias mspworker='ssh $(ls-servers -QN -c east -Sqt mspworker | shuf -n 1)'
 
-alias hdsq='henson dump-skycfg --qa'alias gcm="git commit -v -m"
-alias gcm="git commit -v -m"
+alias hdsq='henson dump-skycfg --qa'
