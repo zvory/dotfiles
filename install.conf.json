@@ -37,12 +37,7 @@
     },
     {
         "shell": [
-            ["echo 'install fzf!'", "INSTALL fzf"]
-        ]
-    },
-    {
-        "shell": [
-            ["echo 'install rupa/z!'", "INSTALL rupa/z"]
+            ["sh -c \"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"", "Installing oh-my-zsh"]
         ]
     }
 ]
