@@ -24,7 +24,6 @@
                 "path": "gitconfig",
                 "force": true
             },
-            "~/.i3status.conf": "i3status.conf",
             "~/.bin": "bin",
             "~/.fehbg": "fehbg",
             "~/Pictures/Proun4b.jpg": {
