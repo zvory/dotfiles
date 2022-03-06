@@ -26,10 +26,6 @@
             },
             "~/.i3status.conf": "i3status.conf",
             "~/.bin": "bin",
-            "~/.config/i3": {
-                "path": "config/i3/",
-                "create": true
-            },
             "~/.fehbg": "fehbg",
             "~/Pictures/Proun4b.jpg": {
                 "path": "Proun4b.jpg",
