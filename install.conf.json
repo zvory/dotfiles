@@ -43,12 +43,12 @@
     },
     {
         "shell": [
-            ["echo 'install fzf!'", "INSTALL FZF INSTALL FZF"]
+            ["echo 'install fzf!'", "INSTALL fzf"]
         ]
     },
     {
         "shell": [
-            ["(cd autojump && ./install.py)", "Installing autojump"]
+            ["echo 'install rupa/z!'", "INSTALL rupa/z"]
         ]
     }
 ]
