@@ -19,18 +19,6 @@
     },
     {
         "link": {
-            "~/.bash_profile": {
-                "path": "bash_profile",
-                "force": true
-            },
-            "~/.bashrc": {
-                "path": "bashrc",
-                "force": true
-            },
-            "~/.bash_logout": {
-                "path": "bash_logout",
-                "force": true
-            },
             "~/.bash_aliases": "bash_aliases",
             "~/.gitconfig": {
                 "path": "gitconfig",
