@@ -3,17 +3,6 @@ alias zshrc="code ~/.zshrc"
 alias grep="grep --color"
 
 exa_binary="ls"
-bat_binary="cat"
-if [[ "$AZ_STRIPE" == "true" ]]; then
-    exa_binary="exa"
-elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-    exa_binary="exa-linux"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    exa_binary="exa-macos"
-fi
-
-# bat
-alias cat="${bat_binary}"
 
 #exa/ls
 alias exa="${exa_binary}"
