@@ -16,16 +16,31 @@ function switchToAndFromApp(bundleID)
   end
 end
 
-function bindHyperHotkey(key, pressedfn, msg)
+function bindOptionShiftCtrlHotkey(key, pressedfn, msg)
+  msg = msg or "" 
+  hs.hotkey.bind({"shift", "ctrl", "alt"}, key, msg, pressedfn, nil, nil)
+end
+
+function bindOptionShiftCtrlHotkeyToApp(key, app)
+  bindOptionShiftCtrlHotkey(key, function() switchToAndFromApp(app) end, app)
+end
+
+
+function bindShiftCtrlHotkey(key, pressedfn, msg)
   msg = msg or "" 
   hs.hotkey.bind({"shift", "ctrl"}, key, msg, pressedfn, nil, nil)
 end
 
-function bindHyperHotkeyToApp(key, app)
-  bindHyperHotkey(key, function() switchToAndFromApp(app) end, app)
+function bindShiftCtrlHotkeyToApp(key, app)
+  bindShiftCtrlHotkey(key, function() switchToAndFromApp(app) end, app)
 end
 
 -- run `osascript -e 'id of app "Slack"'` to get bundle of an app
+
+--bindOptionShiftCtrlHotkeyToApp('4', 'com.spotify.client')
+--bindOptionShiftCtrlHotkeyToApp('3', 'com.jetbrains.WebStorm')
+
+
 bindHyperHotkeyToApp('4', "com.tinyspeck.slackmacgap")
 bindHyperHotkeyToApp('3', "com.jetbrains.intellij")
 bindHyperHotkeyToApp('2', "com.googlecode.iterm2")
