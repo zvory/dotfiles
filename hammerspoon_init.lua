@@ -25,21 +25,40 @@ function bindOptionShiftCtrlHotkeyToApp(key, app)
   bindOptionShiftCtrlHotkey(key, function() switchToAndFromApp(app) end, app)
 end
 
-function bindShiftCtrlHotkey(key, pressedfn, msg)
+
+function bindOptionCtrlHotkey(key, pressedfn, msg)
   msg = msg or "" 
-  hs.hotkey.bind({"shift", "ctrl"}, key, msg, pressedfn, nil, nil)
+  hs.hotkey.bind({"alt", "ctrl"}, key, msg, pressedfn, nil, nil)
 end
 
-function bindShiftCtrlHotkeyToApp(key, app)
-  bindShiftCtrlHotkey(key, function() switchToAndFromApp(app) end, app)
+function bindOptionCtrlHotkeyToApp(key, app)
+  bindOptionCtrlHotkey(key, function() switchToAndFromApp(app) end, app)
 end
+
+function reloadConfig(files)
+  doReload = false
+  for _,file in pairs(files) do
+      if file:sub(-4) == ".lua" then
+          doReload = true
+      end
+  end
+  if doReload then
+      hs.reload()
+  end
+end
+myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
+
+bindOptionShiftCtrlHotkeyToApp('4', 'com.apple.systempreferences')
+bindOptionShiftCtrlHotkeyToApp('3', 'com.spotify.client')
+bindOptionShiftCtrlHotkeyToApp('1', 'com.zsa.wally')
 
 
 -- run `osascript -e 'id of app "Slack"'` to get bundle of an app
+bindOptionCtrlHotkeyToApp('4', "md.obsidian")
+bindOptionCtrlHotkeyToApp('3', "com.tinyspeck.slackmacgap")
+bindOptionCtrlHotkeyToApp('2', "com.jetbrains.intellij")
+bindOptionCtrlHotkeyToApp('1', "com.googlecode.iterm2")
+bindOptionCtrlHotkeyToApp('0', "com.google.Chrome")
 
-bindOptionShiftCtrlHotkeyToApp('4', 'com.spotify.client')
-bindShiftCtrlHotkeyToApp('5', "md.obsidian")
-bindShiftCtrlHotkeyToApp('4', "com.tinyspeck.slackmacgap")
-bindShiftCtrlHotkeyToApp('3', "com.jetbrains.intellij")
-bindShiftCtrlHotkeyToApp('2', "com.googlecode.iterm2")
-bindShiftCtrlHotkeyToApp('1', "com.google.Chrome")
+hs.alert.show("Config loaded")
+
