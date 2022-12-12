@@ -33,6 +33,7 @@ alias gpr='git pull --rebase'
 alias gpp='git pull && git push'
 alias gup='git fetch && git rebase'
 alias gp='git push'
+alias gpf='git push --force'
 alias gpo='git push origin'
 alias gdv='git diff -w "$@" | vim -R -'
 alias gc='git commit -v'
@@ -78,3 +79,13 @@ alias kp='k -p -n'
 alias mspworker='ssh $(ls-servers -QN -c east -Sqt mspworker | shuf -n 1)'
 
 alias hdsq='henson dump-skycfg --qa'
+
+alias begin="work begin  --no-pr"
+alias pr="work pr create"
+review() {
+  work review create "$@"
+}
+alias showpr="work pr show"
+alias aliases="code ~/.aliases"
+alias logs21="cd ~/Library/Logs/JetBrains/IntelliJIdea2021.3"
+alias tail21="tail -n 500 -f ~/Library/Logs/JetBrains/IntelliJIdea2021.3/idea.log"

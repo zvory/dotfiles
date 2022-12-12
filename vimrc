@@ -391,3 +391,7 @@ endfunction
 set number
 set showcmd
 set cursorline
+:nmap ; :
+:imap jk <Esc>
+:imap kj <Esc>
+
