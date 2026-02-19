@@ -16,7 +16,6 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 
 echo '#######################################'
 echo '# Manual installation required for:'
-echo '# add source ~/.aliases to ~/.zshrc'
 echo '# fzf'
-echo '# add source plugins=(git colored-man-pages z zsh-interactive-cd) to ~/.zshrc'
+echo '# add plugins=(git colored-man-pages z zsh-interactive-cd) to ~/.zshrc'
 echo '#######################################'

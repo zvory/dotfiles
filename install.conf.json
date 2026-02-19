@@ -29,5 +29,10 @@
         "shell": [
             ["sh -c \"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"", "Installing oh-my-zsh"]
         ]
+    },
+    {
+        "shell": [
+            ["grep -q 'source ~/.aliases' ~/.zshrc || echo '\\nsource ~/.aliases' >> ~/.zshrc", "Adding source ~/.aliases to ~/.zshrc"]
+        ]
     }
 ]
