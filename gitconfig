@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Alexander Zvorygin
-	email = grafetu@gmail.com
+	email = alexander.zvorygin@datadoghq.com
 [push]
 	default = simple
 [color "diff-highlight"]
@@ -26,3 +26,5 @@
   remote-purge = "!rp() { git config --unset remote.origin.fetch \".*$1.*\"; git update-ref -d refs/remotes/origin/$1; }; rp"
 [includeIf "gitdir:~/go/src/github.com/DataDog/"]
 	path = ~/.gitconfig-datadog
+[include]
+	path = /Users/alexander.zvorygin/.config/gitsign/gitconfig

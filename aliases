@@ -17,7 +17,7 @@ alias cxpq="cd $DATADOG_ROOT/dd-source/domains/xpq/"
 alias isp="integrate -d -s shadowing-platform"
 alias isse="integrate -d -s substrait-executor"
 
-alias t0="ssh zvorygin-0 -t 'tmux -CC new -A -s main'"
+alias t0="ssh workspace-zvorygin-0 -t 'tmux -CC new -A -s main'"
 
 alias clone="cd $DATADOG_ROOT/clones/dd-source/"
 alias green="cd $DATADOG_ROOT/green/"
@@ -275,6 +275,11 @@ alias grb='git branch -v --sort=-committerdate | fzf --layout=reverse-list --bin
 if [ ! -x "$(which tree 2>/dev/null)" ]
 then
   alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+fi
+
+# fzf shell integration (keybindings like ctrl+r, completion)
+if command -v fzf &> /dev/null; then
+  eval "$(fzf --zsh)"
 fi
 
 # Directory
