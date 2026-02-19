@@ -39,5 +39,15 @@
         "shell": [
             ["command -v fzf || (git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish)", "Installing fzf"]
         ]
+    },
+    {
+        "shell": [
+            ["grep -q 'source ~/.fzf.zsh' ~/.zshrc || sed -i '/source ~\\/\\.aliases/i [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh\\n' ~/.zshrc", "Adding fzf source to ~/.zshrc"]
+        ]
+    },
+    {
+        "shell": [
+            ["sed -i 's/^plugins=(git)$/plugins=(git colored-man-pages z zsh-interactive-cd)/' ~/.zshrc", "Enabling oh-my-zsh plugins"]
+        ]
     }
 ]
