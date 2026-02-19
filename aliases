@@ -277,6 +277,11 @@ then
   alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 fi
 
+# z - directory jumping (source from oh-my-zsh if not already loaded)
+if ! command -v z &> /dev/null && [[ -n "$ZSH" && -f "$ZSH/plugins/z/z.sh" ]]; then
+  source "$ZSH/plugins/z/z.sh"
+fi
+
 # fzf shell integration (keybindings like ctrl+r, completion)
 if command -v fzf &> /dev/null; then
   eval "$(fzf --zsh)"
