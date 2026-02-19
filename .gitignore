@@ -1,0 +1,23 @@
+# Claude secrets & runtime data
+claude/.credentials.json
+claude/debug/
+claude/history.jsonl
+claude/stats-cache.json
+claude/shell-snapshots/
+claude/file-history/
+claude/projects/
+claude/teams/
+claude/tasks/
+claude/todos/
+claude/plans/
+claude/cache/
+claude/paste-cache/
+claude/plugins/
+claude/statsig/
+claude/ide/
+claude/session-env/
+claude/telemetry/
+claude/examples/
+
+# macOS
+.DS_Store
