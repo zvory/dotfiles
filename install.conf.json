@@ -10,29 +10,19 @@
         ]
     },
     {
-        "shell": [
-            ["cp ~/.bashrc ~/.OLDbashrc\"$(date)\" || true"],
-            ["cp ~/.bash_logout ~/.OLDbash_logout\"$(date)\" || true"],
-            ["cp ~/.gitconfig ~/.OLDgitconfig\"$(date)\" || true"],
-            ["cp ~/.bash_profile ~/.OLDbash_profile\"$(date)\" || true"]
-        ]
-    },
-    {
         "link": {
             "~/.aliases": "aliases",
+            "~/.vimrc": "vimrc",
             "~/.gitconfig": {
                 "path": "gitconfig",
                 "force": true
             },
-            "~/Pictures/Proun4b.jpg": {
-                "path": "Proun4b.jpg",
-                "create": true
-            },
-            "~/Pictures/convoy.png": {
-                "path": "convoy.png",
-                "create": true
-            },
-            "~/.vimrc": "vimrc"
+            "~/.gitconfig-datadog": "gitconfig-datadog",
+            "~/.claude/CLAUDE.md": "claude/CLAUDE.md",
+            "~/.claude/settings.json": "claude/settings.json",
+            "~/.claude/settings.local.json": "claude/settings.local.json",
+            "~/.claude/policy-limits.json": "claude/policy-limits.json",
+            "~/.claude/commands": "claude/commands"
         }
     },
     {
@@ -41,4 +31,3 @@
         ]
     }
 ]
-	

@@ -1,6 +1,126 @@
 # Quickly access the ~/.zshrc file
-alias zshrc="code ~/.zshrc"
+# Uses $EDITOR to edit the file
+alias zshrc="$EDITOR ~/.zshrc && source ~/.zshrc"
+alias hammerspoon="$EDITOR ~/.hammerspoon/"
+alias aliases='cursor --wait --new-window ~/.aliases && source ~/.aliases'
+
+
 alias grep="grep --color"
+alias ddgo="cd /Users/alexander.zvorygin/go/src/github.com/DataDog/dd-go"
+alias ds="cd $DATADOG_ROOT/dd-source"
+alias csse="cursor $DATADOG_ROOT/dd-source/domains/xpq/apps/apis/substrait-executor"
+alias cdsse="cd $DATADOG_ROOT/dd-source/domains/xpq/apps/apis/substrait-executor"
+alias csp="cursor $DATADOG_ROOT/dd-source/domains/xpq/apps/apis/shadowing-platform"
+alias cclaude="cursor ~/.claude"
+alias cdsp="cd $DATADOG_ROOT/dd-source/domains/xpq/apps/apis/shadowing-platform"
+alias cxpq="cd $DATADOG_ROOT/dd-source/domains/xpq/"
+alias isp="integrate -d -s shadowing-platform"
+alias isse="integrate -d -s substrait-executor"
+
+alias t0="ssh zvorygin-0 -t 'tmux -CC new -A -s main'"
+
+alias clone="cd $DATADOG_ROOT/clones/dd-source/"
+alias green="cd $DATADOG_ROOT/green/"
+alias blue="cd $DATADOG_ROOT/blue/"
+
+alias j="jj"
+alias jfmt="bzl run //rules/format:format_java"
+
+export sse="domains/xpq/apps/apis/substrait-executor"
+export sp="domains/xpq/apps/apis/shadowing-platform"
+export con="domains/xpq/shared/libs/consistency"
+
+
+#kubectl
+alias k="kubectl"
+alias kd="kubectl describe"
+alias kdd="kubectl describe deployment"
+alias kdp="kubectl describe pod"
+alias kds="kubectl describe service"
+alias kg="kubectl get"
+alias kgp="kubectl get pod"
+alias kgd="kubectl get deployment"
+alias kga="kubectl get all"
+alias kgc="kubectl get configmap"
+
+k_list_pods_in_deployment() (
+  test $# -eq 0 && {
+    echo "Missing deployment name" && kubectl get deployments
+    return 1
+  }
+  deployment="$1"; shift
+  replicaSet="$(kubectl describe deployment $deployment \
+    | grep '^NewReplicaSet' \
+    | awk '{print $2}'
+  )"
+
+  podHashLabel="$(kubectl get rs $replicaSet \
+    -o jsonpath='{.metadata.labels.pod-template-hash}'
+  )"
+
+  kubectl get pods -l pod-template-hash=$podHashLabel --show-labels \
+    | tail -n +2 | awk '{print $1}'
+
+)
+alias k.list-pods-in-deployment=k_list_pods_in_deployment
+
+kexec() {
+  local pod_name=$(kubectl get pods --no-headers -o custom-columns=":metadata.name" | grep "$1" | head -n 1)
+  kubectl exec -it "$pod_name" -- /bin/bash
+}
+
+function klog() {
+    follow_logs=false
+
+    while getopts ":f" opt; do
+        case $opt in
+            f)
+                follow_logs=true
+                ;;
+            \?)
+                echo "Invalid option: -$OPTARG" >&2
+                return 1
+                ;;
+        esac
+    done
+    shift $((OPTIND -1))
+
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: klog [-f] <deployment-name>"
+        return 1
+    fi
+
+    deployment_name=$1
+
+    # Get the name of a pod in the given deployment
+    pod_name=$(k_list_pods_in_deployment $deployment_name | head -n 1)
+
+    if [ -z "$pod_name" ]; then
+        echo "No pods found for deployment: $deployment_name"
+        return 1
+    fi
+
+    # Get the name of the main container in the pod
+    main_container_name=$(kubectl get pod $pod_name -o jsonpath='{.spec.containers[0].name}')
+
+    if [ -z "$main_container_name" ]; then
+        echo "No containers found in pod: $pod_name"
+        return 1
+    fi
+
+    # Get the logs of the main container, with or without following
+    if [ "$follow_logs" = true ]; then
+        kubectl logs -f $pod_name -c $main_container_name
+    else
+        kubectl logs $pod_name -c $main_container_name
+    fi
+}
+
+
+# random bullshit
+alias rlh='rm -rf domains/dna/apps/lakehouse-catalog/bin/'
+alias gzm='bzl run //:gazelle && git add "*.bazel" && gcm "bzl run //:gazelle"'
+
 
 #exa/ls
 exa_binary="ls"
@@ -20,6 +140,7 @@ alias chmoud="chmod"
 
 # Git Aliases
 alias gd="git diff"
+alias gdsse="gd $DATADOG_ROOT/dd-source/domains/xpq/apps/apis/substrait-executor"
 alias gdc="git diff --cached"
 alias gcl='git clone'
 alias ga='git add'
@@ -27,7 +148,51 @@ alias gall='git add .'
 
 alias g='git'
 alias gs='git status'
+alias gsse='git status $DATADOG_ROOT/dd-source/domains/xpq/apps/apis/substrait-executor'
 alias gss='git status -s'
+alias gf="git fetch"
+alias gfo='git fetch origin'
+alias gfot='git fetch origin $(trunk)'
+update_trunk_branch() {
+  local trunk_branch=$(trunk)
+  if [ "$(git symbolic-ref --short HEAD)" = "$trunk_branch" ]; then
+    git fetch origin "$trunk_branch" &&
+    git reset --hard "origin/$trunk_branch"
+  else
+    git fetch origin "$trunk_branch" &&
+    git branch -f "$trunk_branch" "origin/$trunk_branch"
+  fi
+}
+
+gfotu() {
+  update_trunk_branch
+}
+
+gfotur() {
+  local trunk_branch=$(trunk)
+  update_trunk_branch &&
+  git rebase "$trunk_branch"
+}
+
+gfotum() {
+  local trunk_branch=$(trunk)
+  update_trunk_branch &&
+  git merge "$trunk_branch" --no-edit &&
+}
+
+gfoc() {
+  git fetch origin "$1" && git branch -f "$1" FETCH_HEAD && git checkout "$1"
+}
+
+func get_local_branch_name() {
+  git rev-parse --abbrev-ref HEAD
+}
+
+gfom () {
+  local branch=$(get_local_branch_name)
+  git fetch origin "$branch" &&
+  git merge "$branch" --no-edit
+}
 alias gl='git pull'
 alias gpr='git pull --rebase'
 alias gpp='git pull && git push'
@@ -39,7 +204,11 @@ alias gdv='git diff -w "$@" | vim -R -'
 alias gc='git commit -v'
 alias gca='git commit --amend'
 alias gcan='git commit --amend --no-edit'
-alias gcm="git commit -v -m"
+gcmp() {
+  git commit -v -m "$*" && git push
+}
+alias gm='git merge --no-edit'
+alias gmm='git merge main --no-edit'
 alias gsh="git show"
 alias gb='git branch'
 alias gcp='git cherry-pick'
@@ -48,15 +217,57 @@ alias gcob='git checkout -b'
 alias gll='git log --graph --pretty=oneline --abbrev-commit'
 alias gg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gcapf="ga . && gca --no-edit && gp -f"
+alias gint="git integrate"
 gpuo() {
     git push -u origin $(git rev-parse --abbrev-ref HEAD)
 }
 
+# Go forward in Git commit hierarchy, towards particular commit 
+# Usage:
+#  gofwd v1.2.7
+# Does nothing when the parameter is not specified.
+function next() {
+  if [ -z "$1" ]; then
+    echo "Usage: next <commit>"
+    return 1
+  fi
+  git checkout $(git rev-list --first-parent --topo-order HEAD.."$*" | tail -1)
+}
+function prev() {
+    git checkout HEAD^1
+}
+
+
+alias sync="git dd sync"
+function switch() {
+  git dd switch "$1"
+}
+
+
+# Bazel aliases
+alias gz='bzl run //:gazelle'
+alias gza='gz && git add "*.bazel"'
+alias gzac='gza && gcm "bzl run //:gazelle"'
+alias gzacp='gzac && gp'
 
 alias fetchout='git fetch origin master-passing-tests && git checkout -B master origin/master-passing-tests && git checkout'
 alias fetcherge='git fetch origin master-passing-tests && git merge origin/master-passing-tests --no-edit'
+alias gfopr='git fetch origin prod && git rebase prod'
 
 alias gch='git branch -v --sort=-committerdate | fzf --layout=reverse-list --bind "enter:execute(git checkout {1})+accept-non-empty"'
+
+function run_gch() { 
+  # Prepend "gch" to the command line and run it.
+  BUFFER="gch $BUFFER"
+  zle accept-line
+}
+
+# zvorygin changes 
+zle -N run_gch
+
+# Bind it to ctrl+b.
+bindkey "^b" run_gch
+
 
 alias grb='git branch -v --sort=-committerdate | fzf --layout=reverse-list --bind "enter:execute(git rebase {1})+accept-non-empty"'
 
@@ -68,24 +279,3 @@ fi
 
 # Directory
 alias mkdir="mkdir -p"
-
-# Stripe aliases
-alias ij='~/stripe/zoolander/dev/ij'
-alias k='sc kubectl'
-alias kq='k -q -n'
-alias kp='k -p -n'
-# alias f="scripts/format_all.sh"
-
-alias mspworker='ssh $(ls-servers -QN -c east -Sqt mspworker | shuf -n 1)'
-
-alias hdsq='henson dump-skycfg --qa'
-
-alias begin="work begin  --no-pr"
-alias pr="work pr create"
-review() {
-  work review create "$@"
-}
-alias showpr="work pr show"
-alias aliases="code ~/.aliases"
-alias logs21="cd ~/Library/Logs/JetBrains/IntelliJIdea2021.3"
-alias tail21="tail -n 500 -f ~/Library/Logs/JetBrains/IntelliJIdea2021.3/idea.log"
