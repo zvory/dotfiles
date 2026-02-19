@@ -20,30 +20,10 @@
       "Skill",
       "mcp__atlassian__*"
     ],
-    "deny": [],
-    "additionalDirectories": [
-      "/Users/alexander.zvorygin/go/src/github.com/DataDog/logs-backend/domains/event-platform",
-      "/Users/alexander.zvorygin/go/src/github.com/DataDog/logs-backend/domains/xpq",
-      "/Users/alexander.zvorygin/go/src/github.com/DataDog/dd-source/domains/xpq/apps/apis/substrait-executor",
-      "/Users/alexander.zvorygin/go/src/github.com/DataDog/dd-source/domains/xpq/apps/apis/shadowing-platform"
-    ]
+    "deny": []
   },
   "model": "opus",
   "enableAllProjectMcpServers": true,
-  "hooks": {
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "afplay /System/Library/Sounds/Hero.aiff",
-            "timeout": 5
-          }
-        ]
-      }
-    ]
-  },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": false,
     "dd@datadog-claude-plugins": true
