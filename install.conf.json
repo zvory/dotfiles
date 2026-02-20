@@ -13,10 +13,7 @@
         "link": {
             "~/.aliases": "aliases",
             "~/.vimrc": "vimrc",
-            "~/.gitconfig": {
-                "path": "gitconfig",
-                "force": true
-            },
+            "~/.gitconfig": "gitconfig",
             "~/.gitconfig-datadog": "gitconfig-datadog",
             "~/.claude/CLAUDE.md": "claude/CLAUDE.md",
             "~/.claude/settings.local.json": "claude/settings.local.json",
