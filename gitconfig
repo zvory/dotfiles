@@ -1,7 +1,4 @@
 # This is Git's per-user configuration file.
-[user]
-	name = Alexander Zvorygin
-	email = alexander.zvorygin@datadoghq.com
 [push]
 	default = simple
 [color "diff-highlight"]
