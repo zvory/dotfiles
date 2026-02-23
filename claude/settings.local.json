@@ -7,7 +7,7 @@
   "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
-      "Bash",
+      "Bash(*)",
       "Read",
       "Write",
       "Edit",
@@ -17,7 +17,10 @@
       "WebFetch",
       "NotebookEdit",
       "Task",
+      "TaskOutput",
+      "TaskStop",
       "Skill",
+      "AskUserQuestion",
       "mcp__atlassian__*"
     ],
     "deny": []
