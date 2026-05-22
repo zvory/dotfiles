@@ -14,6 +14,12 @@ Tools
 - prefer to run tests using `go test ./...` over bazel
 - never look at go.sum or go.mod, it's too big and will kill your context window
 
+Testing and PR Flow
+---
+
+- Run long or broad test suites in subagents when available so the primary agent can keep working while tests run.
+- Once the code change is complete and relevant tests have been started, commit, push, and open a non-draft PR without waiting for local tests to succeed.
+
 
 -----------
 
